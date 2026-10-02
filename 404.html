@@ -63,12 +63,10 @@
     <script>
         // ===== STUDENT DATABASE =====
         // Naya student add karne ke liye yahan entry daalo
-        // Format: "ENROLLMENT_NO": { degreeSerial: "DEGREE_SERIAL_NO" }
         var students = {
             "Z1120613208": { degreeSerial: "Z2013156" },
             // Naye students neeche add karo:
             // "C1820999643985": { degreeSerial: "C18041908" },
-            // "ENROLLMENT_NO": { degreeSerial: "DEGREE_SERIAL" },
         };
 
         // URL se EN parameter read karo
@@ -79,7 +77,6 @@
         if (enrollmentNo && students[enrollmentNo]) {
             var student = students[enrollmentNo];
             lblds.innerHTML = '<p style="font-size:15px;">Enrollment No :' + enrollmentNo + '<br/> <b>The Alloted Degree Serial No. to this student is : ' + student.degreeSerial + ' </b></p><br/> <b style="color:green;font-size:35px">[Valid]<br/><i style="font-size:24px" class="fa">&#xf058;</i></b>';
-            document.getElementById("form1").action = "./Degree.aspx?EN=" + enrollmentNo;
         } else if (enrollmentNo) {
             lblds.innerHTML = '<p style="font-size:15px;"><b style="color:red;font-size:35px">[Invalid]<br/><i style="font-size:24px" class="fa">&#xf057;</i></b></p>';
         }
