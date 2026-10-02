@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>
+        Degree Verify
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+    <form method="post" action="" id="form1">
+        <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
+            value="/wEPDwULLTE2NTA0MzEzNjYPZBYCAgMPZBYCAgEPDxYCHgRUZXh0BfMBPHAgc3R5bGU9J2ZvbnQtc2l6ZToxNXB4Oyc+RW5yb2xsbWVudCBObyA6WjExMjA2MTMyMDg8YnIvPiA8Yj5UaGUgQWxsb3RlZCBEZWdyZWUgU2VyaWFsIE5vLiB0byB0aGlzIHN0dWRlbnQgaXMgOiBaMjAxNTE1NiA8L2I+PC9wPjxici8+IDxiIHN0eWxlPSdjb2xvcjpncmVlbjtmb250LXNpemU6MzVweCc+W1ZhbGlkXTxici8+PGkgc3R5bGU9J2ZvbnQtc2l6ZToyNHB4JyBjbGFzcz0nZmEnPiYjeGYwNTg7PC9pPjwvYj5kZGQAH7U6bi0Tim/96WtSLm+V2NDENQ==" />
+
+        <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="1AFC970A" />
+        <center>
+            <!--banner section -->
+            <div style="text-align: center; padding: 20px">
+                <div>
+                    <img src="https://subhartidde.com/Admin/images/logo.png" alt="" />
+                </div>
+            </div>
+            <div style="margin: 0px auto;">
+                <table style="border-bottom: 1px solid grey;">
+                    <tr style="text-align: center;">
+                        <td>
+                            <img src="https://subhartidde.com/assets/img/logo_v02.png" style="height: 60px" />
+                        </td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td>
+                            <div>
+                                <h1 style="margin: 0px; padding: 0px; font-size: 30px">Swami Vivekanand Subharti
+                                    University</h1>
+                                <h6 style="margin: 0px; padding: 0px; font-size: 12px">(A University Under section 2(f)
+                                    of the UGC Act, 1956 Established by U.P. Govt. under Act No. 29 of 2008)</h6>
+                                <h4 style="margin: 0px; padding: 0px">MEERUT - 250005 (U.P) INDIA</h4>
+                                <h2 style="margin: 0px; padding: 0px">Centre for Distance and Online Education</h2>
+                                <h6 style="margin: 0px; padding: 0px; font-size: 12px">(Approved by DEB of UGC)</h6>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="text-align: center">
+                            <p style="border-top: 1px solid grey; padding-top: 18px;">
+                                <span id="lblds" class="text">
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+                <div>
+                </div>
+            </div>
+
+
+        </center>
+    </form>
+
+    <script>
+        // ===== STUDENT DATABASE =====
+        // Naya student add karne ke liye yahan entry daalo
+        // Format: "ENROLLMENT_NO": { degreeSerial: "DEGREE_SERIAL_NO" }
+        var students = {
+            "Z1120613208": { degreeSerial: "Z2013156" },
+            // Naye students neeche add karo:
+            // "C1820999643985": { degreeSerial: "C18041908" },
+            // "ENROLLMENT_NO": { degreeSerial: "DEGREE_SERIAL" },
+        };
+
+        // URL se EN parameter read karo
+        var params = new URLSearchParams(window.location.search);
+        var enrollmentNo = params.get("EN");
+        var lblds = document.getElementById("lblds");
+
+        if (enrollmentNo && students[enrollmentNo]) {
+            var student = students[enrollmentNo];
+            lblds.innerHTML = '<p style="font-size:15px;">Enrollment No :' + enrollmentNo + '<br/> <b>The Alloted Degree Serial No. to this student is : ' + student.degreeSerial + ' </b></p><br/> <b style="color:green;font-size:35px">[Valid]<br/><i style="font-size:24px" class="fa">&#xf058;</i></b>';
+            document.getElementById("form1").action = "./Degree.aspx?EN=" + enrollmentNo;
+        } else if (enrollmentNo) {
+            lblds.innerHTML = '<p style="font-size:15px;"><b style="color:red;font-size:35px">[Invalid]<br/><i style="font-size:24px" class="fa">&#xf057;</i></b></p>';
+        }
+    </script>
+</body>
+
+</html>
